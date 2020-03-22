@@ -9,6 +9,7 @@ function createElement() {
   li.appendChild(document.createTextNode(input.value));
   ul.appendChild(li);
   input.value = "";
+  li.addEventListener("click", markAsDone);
 }
 
 function addOnClick() {
@@ -23,6 +24,10 @@ function addOnEnter(event) {
   }
 }
 
+function markAsDone() {
+  this.classList.toggle("done");
+}
+
 addbtn.addEventListener("click", addOnClick);
 input.addEventListener("keypress", addOnEnter);
 // End of Process 1
@@ -30,9 +35,7 @@ input.addEventListener("keypress", addOnEnter);
 // Toggle Done
 function doneTgl() {
   for (let i = 0; i < lista.length; i++) {
-    lista[i].addEventListener("click", function() {
-      lista[i].classList.toggle("done");
-    });
+    lista[i].addEventListener("click", markAsDone);
   }
 }
 
