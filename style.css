@@ -25,3 +25,30 @@
 li {
   cursor: pointer
 }
+
+/* h1, p {
+  text-align: center;
+} */
+
+#enter {
+  margin-left: 5px;
+}
+
+ input {
+margin-left: 5px;
+text-align: center;
+ }
+
+li {
+  font-size: 24px;
+
+}
+
+.btn.btn-danger {
+  margin-left: 10px;
+}
+
+body{
+  text-align: center;
+  background: linear-gradient(to right, red, yellow);
+}

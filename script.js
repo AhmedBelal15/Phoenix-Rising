@@ -3,6 +3,9 @@ const input = document.getElementById("userinput");
 const ul = document.getElementById("list");
 const lista = document.getElementsByTagName("li");
 const bodyS = document.querySelector("body");
+const css = document.querySelector("h3");
+const color1 = document.getElementById("color1");
+const color2 = document.getElementById("color2");
 
 // create element on button click of Enter Press
 function createElement() {
@@ -13,6 +16,7 @@ function createElement() {
   input.value = "";
   li.appendChild(deleteButton);
   deleteButton.innerHTML="Delete";
+  deleteButton.className="btn btn-danger"
 }
 
 function addOnClick() {
@@ -42,7 +46,21 @@ bodyS.addEventListener("click", function(event){
 // end of process 2
 
 ul.addEventListener("click", function(event2){
-  if(event.target.tagName.toLowerCase() === 'button'){
+  if(event2.target.tagName.toLowerCase() === 'button'){
     event2.target.parentNode.remove();
   }
 })
+
+//Color Gradient
+function colorGrad(){
+  bodyS.style.background =
+  "linear-gradient(to right, "
+   + color1.value
+   + ", "
+   + color2.value
+   + ")";
+   css.textContent = bodyS.style.background + ";";
+}
+
+color1.addEventListener("input", colorGrad);
+color2.addEventListener("input", colorGrad);
