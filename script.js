@@ -7,9 +7,12 @@ const bodyS = document.querySelector("body");
 // create element on button click of Enter Press
 function createElement() {
   const li = document.createElement("li");
+  const deleteButton = document.createElement("button")
   li.appendChild(document.createTextNode(input.value));
   ul.appendChild(li);
   input.value = "";
+  li.appendChild(deleteButton);
+  deleteButton.innerHTML="Delete";
 }
 
 function addOnClick() {
@@ -28,18 +31,7 @@ addbtn.addEventListener("click", addOnClick);
 input.addEventListener("keypress", addOnEnter);
 // End of Process 1
 
-// Toggle Done
 
-// function doneTgl() {
-//   for (let i = 0; i < lista.length; i++) {
-//     lista[i].addEventListener("click", function() {
-//       lista[i].classList.toggle("done");
-//     });
-//   }
-// }
-
-// doneTgl();
-// end of Toggle Done
 
 // toggling done on click
 bodyS.addEventListener("click", function(event){
@@ -48,3 +40,9 @@ bodyS.addEventListener("click", function(event){
   }
 })
 // end of process 2
+
+ul.addEventListener("click", function(event2){
+  if(event.target.tagName.toLowerCase() === 'button'){
+    event2.target.parentNode.remove();
+  }
+})
